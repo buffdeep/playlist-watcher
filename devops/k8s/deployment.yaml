@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-watcher
+spec:
+  selector:
+    matchLabels:
+      app: playlist-watcher
+  template:
+    metadata:
+      labels:
+        app: playlist-watcher
+    spec:
+      containers:
+      - name: playlist-watcher
+        image: docker.io/buffdeep/playlist-watcher:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: SOURCE_ID
+          value: 
+        - name: DESTINATION_ID
+          value: 
